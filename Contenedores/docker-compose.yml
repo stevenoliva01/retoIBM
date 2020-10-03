@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  nginx:
+    container_name: nginx_run
+    image: retoibm_nginx
+    ports:
+      - 8082:8081
+    depends_on:
+      - app
+  app:
+    container_name: app-retoIBM_run
+    image: retoibm_app
+    ports:
+      - 3082:3081
+    depends_on:
+      - db
+  db:
+    container_name: postgres_run
+    image: retoibm_db
+    ports:
+      - 5433:5432
